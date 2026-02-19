@@ -12,10 +12,10 @@ class Burgers{
                 <img class="w-[170px] hover:scale-[1.1] duration-300 ease-in-out"  src="${this.img}" alt=""/>
             </div>
             <div class="px-3">
-                <p class="text-white font-[500] text-xl mt-3">${this.title}</p>
+                <p class="text-white font-[500] text-xl mt-3 ">${this.title}</p>
                 <p class="text-white mt-3">${this.text}</p>
                 <div class="flex justify-between items-center mt-3">
-                    <p class="text-white text-xl">$ ${this.price}</p>
+                    <p class="text-white text-xl ml2">$ ${this.price}</p>
                     <p class="bg-[#ffbe33] w-[40px] h-[40px] rounded-[50%] flex justify-center items-center"><i class="fa-solid fa-cart-shopping text-white"></i></p>
                 </div>
             </div>
@@ -41,3 +41,20 @@ for (let s = 0; s < burgerarray.length; s++) {
     cardcontainer.innerHTML += burgerarray[s].showburgers()
     
 }
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml2 .letter',
+    scale: [4,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 950,
+    delay: (el, i) => 70*i
+  }).add({
+    targets: '.ml2',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
